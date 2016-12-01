@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+  
+  <!-- 标签库描述 -->
+  <description>Date 1.0 core library</description>
+  <!-- 显示名称 -->
+  <display-name>Date core</display-name>
+  <!-- 版本号 -->
+  <tlib-version>1.0</tlib-version>
+  <!-- 短名 -->
+  <short-name>it</short-name>
+  <!-- URI -->
+  <uri>/date-tags</uri>
+  
+  <!-- 定义一个formatDate标签 -->
+  <tag>
+  	 <!-- 标签名 -->
+  	 <name>formatDate</name>
+  	 <!-- 标签处理类 -->
+  	 <tag-class>cn.sunnyboy.activiti.common.tag.DateTag</tag-class>
+  	 <!-- 标签体为空 -->
+	 <body-content>empty</body-content>  
+	 
+	 <!-- 指定标签需要的属性 -->
+	 <attribute>
+	 	 <!-- 属性名 -->
+	 	 <name>value</name>
+	 	 <!-- 指定该属性是不是必须的 -->
+	 	 <required>true</required>
+	 	 <!-- run time expression value  指定属性可以用EL动态的取值 -->
+	 	 <rtexprvalue>true</rtexprvalue>
+	 </attribute>	 
+  </tag>
+  
+  
+</taglib>
