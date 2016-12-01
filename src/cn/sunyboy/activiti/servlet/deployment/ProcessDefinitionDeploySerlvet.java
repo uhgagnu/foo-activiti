@@ -15,6 +15,7 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.DeploymentBuilder;
 
 import cn.sunnyboy.activiti.common.ProcessEngineUtils;
+import cn.sunnyboy.activiti.common.UploadFileNameUtil;
 
 /**
  * 流程定义部署
@@ -35,7 +36,10 @@ public class ProcessDefinitionDeploySerlvet extends HttpServlet {
 		String processName = request.getParameter("processName");
 		/** 获取文件上传的请求参数 */
 		Part part = request.getPart("bpmn");
-		
+		String header = part.getHeader("content-disposition");
+		System.out.println("..."+part.getName());
+		System.out.println("%%%%%"+part.getHeader("content-disposition"));
+		System.out.println("文件名:"+UploadFileNameUtil.getUploadFileName(header, "filename=\"", "\""));
 		System.out.println("文件上传的大小：" + part.getSize());
 		System.out.println("文件的输入流：" + part.getInputStream());
 		//System.out.println("文件名：" + part.getSubmittedFileName()); // servlet3.1
@@ -55,7 +59,7 @@ public class ProcessDefinitionDeploySerlvet extends HttpServlet {
 		/** 设置name */
 		builder.name(processName);
 		/** 设置分类 */
-		builder.category("传智");
+		builder.category("工作流部署");
 		/** 添加要部署的文件
 		 *  第一个参数：流程定义文件的文件名
 		 *  第二个参数：流程定义文件的输入流
